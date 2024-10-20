@@ -1,0 +1,1 @@
+<input {{$attributes(['class' => 'w-60 min-w-max px-3 py-2 bg-colorblack text-white'])}} value="{{$slot}}">

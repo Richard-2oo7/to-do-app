@@ -6,7 +6,13 @@ export default {
     "./resources/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        colorblack: 'rgb(33,33,33)',
+        colorlightblack: 'rgb(55,55,55)',
+        colorlightgray: 'rgb(125,125,125)',
+      }
+    },
   },
   plugins: [],
 }

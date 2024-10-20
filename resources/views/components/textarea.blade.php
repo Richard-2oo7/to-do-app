@@ -1,0 +1,1 @@
+<textarea {{$attributes(['class'=>"h-80 w-full px-2 py-3 bg-colorblack text-white rounded-sm"])}}>{{$slot}}</textarea>

@@ -37,7 +37,12 @@ class PanelController extends Controller
      */
     public function show(Panel $panel)
     {
-        //
+        $panelWithTasksHtml = view('components.panel', ['panel' => $panel])->render();
+        return response()->json([
+            'message' => 'taken goed opgehaald',
+            'data' => $panelWithTasksHtml
+        ]);
+
     }
 
     /**

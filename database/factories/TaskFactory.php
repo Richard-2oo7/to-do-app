@@ -20,7 +20,8 @@ class TaskFactory extends Factory
     {
         return [
             'panel_id' => Panel::factory(),
-            'title' => fake()->sentence(),
+            'title' => fake()->word(),
+            'completed' => 0,
             'description' => fake()->text(),
         ];
     }

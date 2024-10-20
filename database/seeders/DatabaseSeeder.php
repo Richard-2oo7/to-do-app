@@ -21,12 +21,12 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-        Board::factory(3)
-            ->haspanels(2)
+        Board::factory(10)
+            ->haspanels(10)
             ->create()
             ->each(function ($board) {
                 $board->panels->each(function($panel) {
-                    Task::factory(4)->create(["panel_id" => $panel->id]);
+                    Task::factory(5)->create(["panel_id" => $panel->id]);
                 });
             });
         

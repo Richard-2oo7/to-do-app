@@ -16,7 +16,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Panel::class)->constrained()->cascadeOnDelete();
             $table->string('title');
-            $table->longText('description');
+            $table->longText('description')->nullable();;
+            $table->boolean('completed')->default(false);
             $table->timestamps();
         });
     }

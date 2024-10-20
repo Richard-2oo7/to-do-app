@@ -13,7 +13,7 @@ class BoardController extends Controller
      */
     public function index()
     {
-        return view('home', [
+        return view('dashboard', [
             'boards' => Board::all(),
         ]);
     }
@@ -23,9 +23,29 @@ class BoardController extends Controller
      */
     public function create()
     {
-        //
-    }
+        $board = Board::create();
+        $boardHTML = view('components.board', ['boards' => $board])->render();
 
+        return response()->json([
+            'message' => 'panel succesvol gemaakt',
+            'html' => $boardHTML,
+        ]);
+    }
+        // Validatie
+        // $validatedItems = $request->validate([
+        //     'panel_id' => ['required'],
+        //     'title' => ['required'],
+        // ]);
+
+        // // // Logica om de taak aan te maken
+        // $task = Task::create($validatedItems);
+
+        // $taskHTML = view("components.task", ['task' => $task])->render();
+
+        // return response()->json([
+        //     'message' => 'Task created successfully.', 
+        //     'data' => $taskHTML 
+        // ]);
     /**
      * Store a newly created resource in storage.
      */
@@ -39,7 +59,7 @@ class BoardController extends Controller
      */
     public function show(Board $board)
     {
-
+        $board->load('panels.tasks');
         return view('board', [
             'board' => $board,
             'panels' => $board->panels,

@@ -14,4 +14,7 @@ class Board extends Model
     public function panels(): HasMany{
         return $this->hasMany(Panel::class);
     }
+    // public function tasks(): HasManyThrough{
+    //     return $this->hasManyThrough(Task::class, Panel::class);
+    // }
 }
